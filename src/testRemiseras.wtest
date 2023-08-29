@@ -1,0 +1,83 @@
+import clientes.*
+import remiseras.*
+
+describe 'testing sobre Roxana'{
+	
+	test "Roxana precio viaje a ludmila en 10 km" {
+		assert.equals(180, roxana.precioViaje(ludmila, 10))
+	}
+	
+	test "Gabriela precio viaje a Ana Maria en 10 km" {
+		assert.equals(300, roxana.precioViaje(anaMaria, 10))
+	}
+	
+	test "Mariela precio viaje a Teresa en 10 km" {
+		assert.equals(220, roxana.precioViaje(teresa, 10))
+	}
+	
+	test "Juana precio viaje a ludmila en 2 km" {
+		assert.equals(36, roxana.precioViaje(ludmila, 2))
+	}
+	
+	test "Juana precio viaje a Ana Maria en 2 km" {
+		assert.equals(60, roxana.precioViaje(anaMaria, 2))
+	}
+	
+	test "Juana precio viaje a Teresa en 2 km" {
+		assert.equals(44, roxana.precioViaje(teresa, 2))
+	}
+	
+}
+
+describe 'testing sobre Gabriela'{
+	
+	test "Gabriela precio viaje a ludmila en 10 km" {
+		assert.equals(216, gabriela.precioViaje(ludmila, 10))
+	}
+	
+	test "Gabriela precio viaje a Ana Maria en 10 km" {
+		assert.equals(360, gabriela.precioViaje(anaMaria, 10))
+	}
+	
+	test "Gabriela precio viaje a Teresa en 10 km" {
+		assert.equals(264, gabriela.precioViaje(teresa, 10))
+	}
+	
+	test "Gabriela precio viaje a ludmila en 2 km" {
+		assert.equals(43.2, gabriela.precioViaje(ludmila, 2))
+	}
+	
+	test "Gabriela precio viaje a Ana Maria en 2 km" {
+		assert.equals(72, gabriela.precioViaje(anaMaria, 2))
+	}
+	
+	test "Gabriela precio viaje a Teresa en 2 km" {
+		assert.equals(52.8, gabriela.precioViaje(teresa, 2))
+	}
+	
+}
+
+describe 'test de Lucia' {
+	
+	test 'No se puede reemplazar a si misma' {
+		
+		assert.throwsExceptionWithMessage('No se puede reemplazar a si mismo',{ lucia.estaReemplazando(lucia)})
+	}
+	
+	test 'Se puede reemplazar a Roxana' {
+		
+		assert.doesNotThrowException({lucia.estaReemplazando(roxana)})
+	}
+	
+	test 'Reemplazo de Roxana' {
+		lucia.estaReemplazando(roxana)
+		assert.equals(180, lucia.precioViaje(ludmila, 10))
+	}
+}
+
+
+
+
+
+
+

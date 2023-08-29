@@ -1,40 +1,42 @@
 
-
 object ludmila {
-	
-	method precioPactadoPorKm() = 18
+
+	method precioPorKm() = 18
 	
 }
 
 object anaMaria {
+	var economicamenteEstable = true
 	
-	var estaEconomicamenteEstable = true
-	
-	method estaEconomicamenteEstable() = estaEconomicamenteEstable
-	
-	method estaEconomicamenteEstable(nuevoValor) {
-		estaEconomicamenteEstable = nuevoValor
-		}
-		
-	method precioPactadoPorKm() {
-    	if (self.estaEconomicamenteEstable()) {
-        	return 30
-    	} else {
-        	return 25
-    	}
+	method cambiarSituacionEconomica() {
+		economicamenteEstable = not economicamenteEstable
 	}
-
+	
+	method economicamenteEstable() = economicamenteEstable
+		
+	method precioPorKm() = if (economicamenteEstable) {30} else {25}
 }
 
 object teresa {
+	var property precioPorKm = 22
+}
+
+object melina {
+	var trabajaPara 
 	
-	var precioPactadoPorKm = 22
+	method trabajaPara() = trabajaPara
 	
-	method precioPactadoPorKm() = precioPactadoPorKm
-	
-	method precioPactadoPorKm(nuevoPrecio) {
-		precioPactadoPorKm = nuevoPrecio
+	method trabajaPara(cliente) {
+		if (self == cliente)
+			self.error('error en trabajaPara')
+		trabajaPara = cliente
 	}
 	
-	
+	method precioPorKm() = trabajaPara.precioPorKm() -3
+
 }
+
+
+
+
+
